@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSF Purchasing</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- TOP NAVIGATION -->
+<header class="topNav">
+  <div class="navLeft">
+      <div class="brand">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCQcpUVcMkiatBspqCS-q1a-143Pvte2_qaw&s" alt="CSF Logo" class="brandLogo">
+        <span>CSF Procurement</span>
+      </div>
+  </div>
+  <div class="navCenter">
+    <div class="searchBar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search requests, vendors...">
+    </div>
+  </div>
+  <div class="navRight">
+    <button class="notificationBtn">
+      <i class="fas fa-bell"></i>
+      <span class="badge">3</span>
+    </button>
+    <button class="profileBtn">
+      <i class="fas fa-user-circle"></i>
+    </button>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="sideNav">
+    <nav class="navMenu">
+      <div class="navSection">
+        <h4 class="navLabel">MAIN</h4>
+        <a href="#" class="navItem active" title="Dashboard">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <div class="navSection">
+        <h4 class="navLabel">PROCUREMENT</h4>
+        <a href="prCreate.html" class="navItem" title="Create Purchase Requisition">
+          <i class="fas fa-file-circle-plus"></i>
+          <span>Create PRS</span>
+        </a>
+        <a href="prList.html" class="navItem" title="View All Requisitions">
+          <i class="fas fa-list"></i>
+          <span>Purchase Requisitions</span>
+        </a>
+        <a href="sourcing.html" class="navItem" title="Sourcing Events">
+          <i class="fas fa-bullhorn"></i>
+          <span>Sourcing Events</span>
+        </a>
+        <a href="rfqList.html" class="navItem" title="RFQ Management">
+          <i class="fas fa-envelope"></i>
+          <span>RFQ Management</span>
+        </a>
+        <a href="bidOpen.html" class="navItem" title="Bid Opening">
+          <i class="fas fa-gavel"></i>
+          <span>RFQ / QEM</span>
+        </a>
+      </div>
+
+      <div class="navSection">
+        <h4 class="navLabel">MANAGE</h4>
+        <a href="vendorProfile.html" class="navItem" title="Vendors">
+          <i class="fas fa-handshake"></i>
+          <span>Vendors</span>
+        </a>
+        <a href="accreditation.html" class="navItem" title="Accreditation">
+          <i class="fas fa-certificate"></i>
+          <span>Accreditation</span>
+        </a>
+        <a href="audit.html" class="navItem" title="Audit Trail">
+          <i class="fas fa-history"></i>
+          <span>Audit Trail</span>
+        </a>
+      </div>
+
+      <div class="navSection">
+        <h4 class="navLabel">ACCOUNT</h4>
+        <a href="#" class="navItem" onclick="logout()" title="Logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <!-- HEADER SECTION -->
+    <div class="pageHeader">
+      <div class="headerContent">
+        <h1>Welcome Back!</h1>
+        <p class="headerSubtext">Here's what's happening in your procurement process today</p>
+      </div>
+      <div class="headerActions">
+        <button class="actionBtn secondary">
+          <i class="fas fa-download"></i> Export Report
+        </button>
+        <button class="actionBtn primary">
+          <i class="fas fa-plus"></i> New Requisition
+        </button>
+      </div>
+    </div>
+
+    <!-- STATISTICS GRID -->
+    <div class="statGrid">
+      <div class="statCard">
+        <div class="statIcon pending">
+          <i class="fas fa-hourglass-half"></i>
+        </div>
+        <div class="statContent">
+          <h3>Pending Requisitions</h3>
+          <div class="statValue">12</div>
+          <p class="statChange">
+            <i class="fas fa-arrow-up"></i> 3 this week
+          </p>
+        </div>
+      </div>
+
+      <div class="statCard">
+        <div class="statIcon approval">
+          <i class="fas fa-check-double"></i>
+        </div>
+        <div class="statContent">
+          <h3>For Approval</h3>
+          <div class="statValue">5</div>
+          <p class="statChange">
+            <i class="fas fa-clock"></i> Urgent
+          </p>
+        </div>
+      </div>
+
+      <div class="statCard">
+        <div class="statIcon sourcing">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <div class="statContent">
+          <h3>Active Sourcing</h3>
+          <div class="statValue">8</div>
+          <p class="statChange">
+            <i class="fas fa-arrow-down"></i> 2 completed
+          </p>
+        </div>
+      </div>
+
+      <div class="statCard">
+        <div class="statIcon vendor">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <div class="statContent">
+          <h3>Vendor Accreditation</h3>
+          <div class="statValue">24</div>
+          <p class="statChange">
+            <i class="fas fa-arrow-up"></i> 2 pending
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT CARDS -->
+    <div class="contentGrid">
+      <!-- RECENT ACTIVITIES -->
+      <div class="card">
+        <div class="cardHeader">
+          <h3>
+            <i class="fas fa-history"></i> Recent Activities
+          </h3>
+          <a href="#" class="viewAllLink">View All</a>
+        </div>
+        <ul class="activityList">
+          <li class="activity">
+            <div class="activityIcon submitted">
+              <i class="fas fa-file"></i>
+            </div>
+            <div class="activityContent">
+              <p class="activityTitle">Purchase Requisition PM-PRS-26-001-001 submitted</p>
+              <p class="activityTime">2 hours ago</p>
+            </div>
+          </li>
+          <li class="activity">
+            <div class="activityIcon pending">
+              <i class="fas fa-hourglass-half"></i>
+            </div>
+            <div class="activityContent">
+              <p class="activityTitle">QEM-PM-26-001-001 awaiting requester responses</p>
+              <p class="activityTime">5 hours ago</p>
+            </div>
+          </li>
+          <li class="activity">
+            <div class="activityIcon approved">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="activityContent">
+              <p class="activityTitle">Vendor documents approved by Accounting Department</p>
+              <p class="activityTime">1 day ago</p>
+            </div>
+          </li>
+          <li class="activity">
+            <div class="activityIcon alert">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="activityContent">
+              <p class="activityTitle">Budget limit exceeded on project code 26-001 Project</p>
+              <p class="activityTime">2 days ago</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="card">
+        <div class="cardHeader">
+          <h3>
+            <i class="fas fa-bolt"></i> Quick Actions
+          </h3>
+        </div>
+        <div class="quickActions">
+          <a href="prCreate.html" class="quickAction">
+            <div class="quickIcon">
+              <i class="fas fa-pen-fancy"></i>
+            </div>
+            <span>Create New PRS</span>
+          </a>
+          <a href="rfqList.html" class="quickAction">
+            <div class="quickIcon">
+              <i class="fas fa-envelope-open"></i>
+            </div>
+            <span>Open RFQ</span>
+          </a>
+          <a href="vendorProfile.html" class="quickAction">
+            <div class="quickIcon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <span>Manage Vendors</span>
+          </a>
+          <a href="audit.html" class="quickAction">
+            <div class="quickIcon">
+              <i class="fas fa-book"></i>
+            </div>
+            <span>View Audit Log</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM SECTION -->
+    <div class="contentGrid">
+      <!-- PENDING APPROVALS -->
+      <div class="card fullWidth">
+        <div class="cardHeader">
+          <h3>
+            <i class="fas fa-tasks"></i> Pending Approvals
+          </h3>
+          <span class="badge badgeAlert">5 items</span>
+        </div>
+        <div class="tableContainer">
+          <table class="dataTable">
+            <thead>
+              <tr>
+                <th>Request ID</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Submitted By</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>PM-PRS-26-001-001</strong></td>
+                <td>Painting Materials</td>
+                <td>Php. 15,500</td>
+                <td>Lanbert Francisco</td>
+                <td><span class="badge badgePending">Pending</span></td>
+                <td>
+                  <button class="actionSmall">Review</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>PM-PRS-26-001-002</strong></td>
+                <td>Raw Materials</td>
+                <td>Php. 15,000</td>
+                <td>Lanbert Francisco</td>
+                <td><span class="badge badgePending">Pending</span></td>
+                <td>
+                  <button class="actionSmall">Review</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>WH-PRS-26-001-001</strong></td>
+                <td>Plant Equipment</td>
+                <td>Php. 5,800</td>
+                <td>Lanbert Francisco</td>
+                <td><span class="badge badgeWarning">Under Review</span></td>
+                <td>
+                  <button class="actionSmall">View</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bid Opening - CSF Procurement</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header class="topNav">
+  <div class="navLeft">
+    <div class="brand">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCQcpUVcMkiatBspqCS-q1a-143Pvte2_qaw&s" alt="CSF Logo" class="brandLogo">
+      <span>CSF Procurement</span>
+    </div>
+  </div>
+  <div class="navRight">
+    <button class="profileBtn" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sideNav">
+    <nav class="navMenu">
+      <div class="navSection">
+        <h4 class="navLabel">MAIN</h4>
+        <a href="dashboard.html" class="navItem">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+      </div>
+      <div class="navSection">
+        <h4 class="navLabel">PROCUREMENT</h4>
+        <a href="prList.html" class="navItem">
+          <i class="fas fa-list"></i>
+          <span>Purchase Requisitions</span>
+        </a>
+        <a href="sourcing.html" class="navItem">
+          <i class="fas fa-bullhorn"></i>
+          <span>Sourcing Events</span>
+        </a>
+        <a href="rfqList.html" class="navItem">
+          <i class="fas fa-envelope"></i>
+          <span>RFQ Management</span>
+        </a>
+        <a href="#" class="navItem active">
+          <i class="fas fa-gavel"></i>
+          <span>Bid Opening</span>
+        </a>
+      </div>
+      <div class="navSection">
+        <h4 class="navLabel">MANAGE</h4>
+        <a href="vendorProfile.html" class="navItem">
+          <i class="fas fa-handshake"></i>
+          <span>Vendors</span>
+        </a>
+        <a href="accreditation.html" class="navItem">
+          <i class="fas fa-certificate"></i>
+          <span>Accreditation</span>
+        </a>
+        <a href="audit.html" class="navItem">
+          <i class="fas fa-history"></i>
+          <span>Audit Log</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="pageHeader">
+      <div class="headerContent">
+        <h1>Bid Opening & Evaluation</h1>
+        <p class="headerSubtext">Manage and evaluate vendor bids</p>
+      </div>
+      <div class="headerActions">
+        <button class="actionBtn primary">
+          <i class="fas fa-file-pdf"></i> Generate NOA
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cardHeader">
+        <h3><i class="fas fa-unlock"></i> Bid Submissions</h3>
+      </div>
+
+      <div class="tableContainer">
+        <table class="dataTable">
+          <thead>
+            <tr>
+              <th>RFQ ID</th>
+              <th>Vendor Name</th>
+              <th>Bid Amount</th>
+              <th>Submission Date</th>
+              <th>Compliance Status</th>
+              <th>Recommendation</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>PM-RFQ-26-001-001</strong></td>
+              <td>Unilab Pharmaceuticals</td>
+              <td>Php. 85,000</td>
+              <td>Jan 24, 2024</td>
+              <td><span class="badge badgeSuccess">Compliant</span></td>
+              <td>Lowest compliant bid</td>
+              <td><button class="actionSmall">Award</button></td>
+            </tr>
+            <tr>
+              <td><strong>PM-RFQ-26-001-001</strong></td>
+              <td>Petron Corporation</td>
+              <td>Php. 92,500</td>
+              <td>Jan 23, 2024</td>
+              <td><span class="badge badgeSuccess">Compliant</span></td>
+              <td>Second lowest</td>
+              <td><button class="actionSmall">View</button></td>
+            </tr>
+            <tr>
+              <td><strong>PM-RFQ-26-001-001</strong></td>
+              <td>Office Supplies Co.</td>
+              <td>Php. 105,000</td>
+              <td>Jan 22, 2024</td>
+              <td><span class="badge badgePending">Non-Compliant</span></td>
+              <td>Missing required documents</td>
+              <td><button class="actionSmall">View</button></td>
+            </tr>
+            <tr>
+              <td><strong>IT-RFQ-26-001-001</strong></td>
+              <td>Samsung Philippines</td>
+              <td>Php. 245,000</td>
+              <td>Jan 20, 2024</td>
+              <td><span class="badge badgeSuccess">Compliant</span></td>
+              <td>Awaiting OOH approval</td>
+              <td><button class="actionSmall">Submit for Approval</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

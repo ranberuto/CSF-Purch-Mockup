@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase Requisition View - CSF Procurement</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header class="topNav">
+  <div class="navLeft">
+    <div class="brand">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCQcpUVcMkiatBspqCS-q1a-143Pvte2_qaw&s" alt="CSF Logo" class="brandLogo">
+      <span>CSF Procurement</span>
+    </div>
+  </div>
+  <div class="navRight">
+    <button class="profileBtn" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sideNav">
+    <nav class="navMenu">
+      <div class="navSection">
+        <h4 class="navLabel">MAIN</h4>
+        <a href="dashboard.html" class="navItem">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <div class="navSection">
+        <h4 class="navLabel">PROCUREMENT</h4>
+        <a href="prCreate.html" class="navItem">
+          <i class="fas fa-file-circle-plus"></i>
+          <span>Create PRS</span>
+        </a>
+        <a href="prList.html" class="navItem active">
+          <i class="fas fa-list"></i>
+          <span>Purchase Requisitions</span>
+        </a>
+        <a href="sourcing.html" class="navItem">
+          <i class="fas fa-bullhorn"></i>
+          <span>Sourcing Events</span>
+        </a>
+        <a href="rfqList.html" class="navItem">
+          <i class="fas fa-envelope"></i>
+          <span>RFQ Management</span>
+        </a>
+        <a href="bidOpen.html" class="navItem">
+          <i class="fas fa-gavel"></i>
+          <span>Bid Opening</span>
+        </a>
+      </div>
+
+      <div class="navSection">
+        <h4 class="navLabel">MANAGE</h4>
+        <a href="vendorProfile.html" class="navItem">
+          <i class="fas fa-handshake"></i>
+          <span>Vendors</span>
+        </a>
+        <a href="accreditation.html" class="navItem">
+          <i class="fas fa-certificate"></i>
+          <span>Accreditation</span>
+        </a>
+        <a href="audit.html" class="navItem">
+          <i class="fas fa-history"></i>
+          <span>Audit Log</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="pageHeader">
+      <div class="headerContent">
+        <h1>Purchase Requisition PM-PRS-26-001-001</h1>
+        <p class="headerSubtext">
+          <span class="badge badgePending">Submitted</span>
+          Awaiting approval
+        </p>
+      </div>
+      <div class="headerActions" data-role="approver">
+        <button class="actionBtn secondary" onclick="rejectPR()">
+          <i class="fas fa-times"></i> Reject
+        </button>
+        <button class="actionBtn primary" onclick="approvePR()">
+          <i class="fas fa-check"></i> Approve
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cardHeader">
+        <h3><i class="fas fa-info-circle"></i> Request Information</h3>
+      </div>
+
+      <div class="formGrid">
+        <div class="formGroup">
+          <label>PRS Number</label>
+          <p><strong>PM-PRS-26-001-001</strong></p>
+        </div>
+        <div class="formGroup">
+          <label>Department</label>
+          <p><strong>Finance</strong></p>
+        </div>
+        <div class="formGroup">
+          <label>Requested By</label>
+          <p><strong>Lanbert Francisco</strong></p>
+        </div>
+        <div class="formGroup">
+          <label>Request Date</label>
+          <p><strong>Jan 16, 2024</strong></p>
+        </div>
+      </div>
+
+      <div class="formGroup">
+        <label>Justification</label>
+        <p>Upgrade office equipment to improve productivity and support hybrid work environment. Current systems are outdated and causing performance issues.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cardHeader">
+        <h3><i class="fas fa-shopping-cart"></i> Line Items</h3>
+      </div>
+
+      <div class="tableContainer">
+        <table class="dataTable">
+          <thead>
+            <tr>
+              <th>Item Description</th>
+              <th>Quantity</th>
+              <th>Unit Cost</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monitor (27-inch 4K)</td>
+              <td>5</td>
+              <td>₱18,000</td>
+              <td>₱90,000</td>
+            </tr>
+            <tr>
+              <td>Keyboard & Mouse Set</td>
+              <td>5</td>
+              <td>₱2,000</td>
+              <td>₱10,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cardHeader">
+        <h3><i class="fas fa-file-alt"></i> Summary</h3>
+      </div>
+
+      <div class="summaryGrid">
+        <div class="formGroup">
+          <label>Total Amount</label>
+          <p><strong>Php. 100,000</strong></p>
+        </div>
+        <div class="formGroup">
+          <label>Budget Code</label>
+          <p><strong>ACC-2024-001</strong></p>
+        </div>
+        <div class="formGroup">
+          <label>Priority</label>
+          <p><strong>Normal</strong></p>
+        </div>
+        <div class="formGroup">
+          <label>Status</label>
+          <p><strong><span class="badge badgePending">Pending Approval</span></strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cardHeader">
+        <h3><i class="fas fa-comments"></i> Approval Comments</h3>
+      </div>
+      <div class="formGroup">
+        <textarea placeholder="Enter approval comments..." style="min-height: 100px;"></textarea>
+      </div>
+      
+      <div class="formActions">
+        <button class="rejectBtn" onclick="rejectPR()">
+          <i class="fas fa-times"></i> Reject
+        </button>
+        <button class="approveBtn" onclick="approvePR()">
+          <i class="fas fa-check"></i> Approve
+        </button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

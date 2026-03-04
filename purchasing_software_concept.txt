@@ -1,0 +1,322 @@
+
+PURCHASING MANAGEMENT SYSTEM CONCEPT
+Based on PRM-12 Purchasing Procedure (ISO 9001:2015 aligned)
+
+------------------------------------------------------------
+1. SYSTEM OVERVIEW
+------------------------------------------------------------
+
+The Purchasing Management System digitizes the entire procurement lifecycle of the company.
+It ensures that the purchasing process follows the official PRM procedures including:
+
+1. Purchase Requisition Slip (PRS) submission
+2. Quotation evaluation
+3. Purchase Order (PO) creation and approval
+4. Supplier coordination
+5. Delivery and receiving of materials
+6. Payment processing
+7. Supplier accreditation and evaluation
+
+The system also provides transparency, audit tracking, and document management.
+
+------------------------------------------------------------
+2. USER ROLES
+------------------------------------------------------------
+
+REQUESTER
+Examples: Project Management, Warehouse, QA/QC, Logistics, Safety
+Permissions:
+- Create PRS request
+- Track request status
+- View quotation evaluation
+- Confirm supplier selection
+
+PURCHASING ASSOCIATE
+Permissions:
+- Receive PRS
+- Evaluate request
+- Request quotations from suppliers
+- Prepare Quotation Evaluation Matrix
+- Generate Purchase Orders
+- Coordinate deliveries
+- Maintain procurement records
+
+WAREHOUSE ASSISTANT
+Permissions:
+- Receive delivered materials
+- Record delivery
+- Upload Delivery Receipt (DR)
+- Upload Sales Invoice (SI)
+- Report defective materials
+
+OFFICE OPERATIONS HEAD (OOH)
+Permissions:
+- Review quotation matrix
+- Approve Purchase Orders
+- Approve petty cash requests below 10,000 PHP
+
+VP FOR OPERATIONS / PRESIDENT
+Permissions:
+- Final approval of Purchase Orders
+- Approve petty cash above 10,000 PHP
+- Decide supplier conflicts
+
+ACCOUNTING DEPARTMENT
+Permissions:
+- Process supplier payments
+- Verify supplier accreditation documents
+- Issue Expanded Withholding Tax (EWT)
+
+LOGISTICS DEPARTMENT
+Permissions:
+- Manage pick-up schedule
+- Track delivery logistics
+
+------------------------------------------------------------
+3. CORE SYSTEM MODULES
+------------------------------------------------------------
+
+MODULE 1: PRS MANAGEMENT
+
+Purpose:
+Digitize the Purchase Requisition Slip process.
+
+Features:
+- Create PRS
+- Auto-generate PRS reference number
+- Input materials, quantity, required date
+- Upload technical specifications
+- Submit to purchasing
+
+Validation Rules:
+- Missing details cannot be submitted
+- Requests after 4:00 PM counted next working day
+
+Database Table: PRS
+
+Fields:
+PRS_ID
+Reference_Number
+Requester_Name
+Department
+Project_Name
+Date_Submitted
+Required_Date
+Status
+Remarks
+
+
+------------------------------------------------------------
+
+MODULE 2: QUOTATION EVALUATION MATRIX
+
+Purpose:
+Compare supplier quotations.
+
+Features:
+- Record up to 3 supplier quotations
+- Compare price, lead time, discounts
+- Show recommended supplier
+- Send to requester for confirmation
+
+Database Table: QUOTATIONS
+
+Fields:
+Quotation_ID
+PRS_ID
+Supplier_ID
+Price
+Lead_Time
+Discount
+Alternative_Item
+Evaluation_Result
+
+------------------------------------------------------------
+
+MODULE 3: PURCHASE ORDER MANAGEMENT
+
+Purpose:
+Generate and approve Purchase Orders.
+
+Features:
+- Auto generate PO number
+- Convert PRS into PO
+- Send PO for approval
+- Digital approval workflow
+
+Approval Workflow:
+
+Purchasing Associate
+↓
+Office Operations Head
+↓
+VP Operations
+
+Database Table: PURCHASE_ORDER
+
+Fields:
+PO_ID
+PRS_ID
+Supplier_ID
+PO_Number
+Date_Created
+Total_Amount
+Approval_Status
+Delivery_Date
+Remarks
+
+------------------------------------------------------------
+
+MODULE 4: DELIVERY AND RECEIVING
+
+Purpose:
+Track delivery and warehouse receipt.
+
+Features:
+- Record delivery
+- Upload DR and SI
+- QA/QC inspection
+- Accept or reject materials
+
+Database Table: DELIVERY
+
+Fields:
+Delivery_ID
+PO_ID
+Supplier_ID
+Delivery_Date
+Received_By
+Inspection_Status
+Remarks
+
+------------------------------------------------------------
+
+MODULE 5: PAYMENT PROCESS
+
+Purpose:
+Manage supplier payments.
+
+Payment Types:
+- Credit Terms
+- Online Transfer
+- Cash Payment (Petty Cash)
+
+Rules:
+Under 10,000 PHP → OOH Approval
+Above 10,000 PHP → VP Approval
+
+Database Table: PAYMENTS
+
+Fields:
+Payment_ID
+PO_ID
+Supplier_ID
+Payment_Type
+Payment_Status
+Amount
+Date_Paid
+
+------------------------------------------------------------
+
+MODULE 6: SUPPLIER MANAGEMENT
+
+Purpose:
+Manage supplier accreditation.
+
+Features:
+- Supplier accreditation form
+- Upload documents
+- Verify certifications
+- Approve supplier
+
+Database Table: SUPPLIERS
+
+Fields:
+Supplier_ID
+Supplier_Name
+Address
+Contact_Person
+Phone
+Email
+Accreditation_Status
+Payment_Terms
+
+------------------------------------------------------------
+
+MODULE 7: SUPPLIER EVALUATION
+
+Purpose:
+Evaluate supplier performance annually.
+
+Evaluation Criteria:
+- Delivery time
+- Product quality
+- Cost
+- Customer service
+- Compliance
+
+Only suppliers with more than 3 POs annually are evaluated.
+
+Database Table: SUPPLIER_EVALUATION
+
+Fields:
+Evaluation_ID
+Supplier_ID
+Year
+Delivery_Score
+Quality_Score
+Cost_Score
+Service_Score
+Remarks
+
+------------------------------------------------------------
+
+4. SYSTEM DASHBOARD
+
+Dashboard features:
+
+Active PRS
+Pending PO approvals
+Incoming deliveries
+Pending payments
+Supplier performance statistics
+
+------------------------------------------------------------
+
+5. AUTOMATION FEATURES
+
+Auto PRS numbering
+Automatic PO generation
+Email notifications
+Approval workflow automation
+Supplier performance analytics
+Document storage
+
+------------------------------------------------------------
+
+6. DOCUMENT STORAGE
+
+The system stores:
+
+PRS
+Quotation Matrix
+Purchase Orders
+Delivery Receipts
+Sales Invoices
+Official Receipts
+Supplier Accreditation Files
+
+------------------------------------------------------------
+
+7. FUTURE FEATURES
+
+Inventory Integration
+Supplier Portal
+Mobile Approval App
+Automated Procurement Reports
+Budget Tracking
+Integration with Accounting System
+
+------------------------------------------------------------
+
+END OF DOCUMENT

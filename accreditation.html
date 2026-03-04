@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor Accreditation - CSF Procurement</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header class="topNav">
+  <div class="navLeft">
+    <div class="brand">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCQcpUVcMkiatBspqCS-q1a-143Pvte2_qaw&s" alt="CSF Logo" class="brandLogo">
+      <span>CSF Procurement</span>
+    </div>
+  </div>
+  <div class="navRight">
+    <button class="profileBtn" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sideNav">
+    <nav class="navMenu">
+      <div class="navSection">
+        <h4 class="navLabel">MAIN</h4>
+        <a href="dashboard.html" class="navItem">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+      </div>
+      <div class="navSection">
+        <h4 class="navLabel">MANAGE</h4>
+        <a href="vendorProfile.html" class="navItem">
+          <i class="fas fa-handshake"></i>
+          <span>Vendors</span>
+        </a>
+        <a href="#" class="navItem active">
+          <i class="fas fa-certificate"></i>
+          <span>Accreditation</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="pageHeader">
+      <div class="headerContent">
+        <h1>Vendor Accreditation Review</h1>
+        <p class="headerSubtext">Review and process vendor accreditation documents</p>
+      </div>
+    </div>
+
+    <!-- ACCREDITATION TABS -->
+    <div class="tabContainer">
+      <div class="tabButtons">
+        <button class="tabBtn active" onclick="switchTab('pending')">
+          <i class="fas fa-hourglass-half"></i> Pending Review
+        </button>
+        <button class="tabBtn" onclick="switchTab('approved')">
+          <i class="fas fa-check-circle"></i> Approved
+        </button>
+        <button class="tabBtn" onclick="switchTab('rejected')">
+          <i class="fas fa-times-circle"></i> Rejected
+        </button>
+      </div>
+    </div>
+
+    <!-- PENDING ACCREDITATIONS -->
+    <div id="pending" class="tabContent active">
+      <div class="card">
+        <div class="cardHeader">
+          <h3><i class="fas fa-hourglass-half"></i> Pending Vendor Accreditations</h3>
+        </div>
+
+        <div class="accreditationGrid">
+          <div class="accreditationCard">
+            <div class="accreditationHeader">
+              <h4>Unilab Pharmaceuticals</h4>
+              <span class="badge badgePending">Pending</span>
+            </div>
+            <div class="accreditationBody">
+              <p><strong>Industry:</strong> Pharmaceuticals</p>
+              <p><strong>Submission Date:</strong> Jan 12, 2024</p>
+              <p><strong>Contact:</strong> procurement@unilab.com.ph</p>
+            </div>
+            <div class="documentList">
+              <p><strong>Required Documents:</strong></p>
+              <ul>
+                <li><i class="fas fa-file-pdf"></i> Business Registration Certificate</li>
+                <li><i class="fas fa-file-pdf"></i> BIR Tax Clearance</li>
+                <li><i class="fas fa-file-pdf"></i> Financial Statements (2023)</li>
+                <li><i class="fas fa-file-pdf"></i> Insurance Certificate</li>
+              </ul>
+            </div>
+            <div class="formActions">
+              <button class="rejectBtn" onclick="rejectAccreditation('Unilab')">
+                <i class="fas fa-times"></i> Reject
+              </button>
+              <button class="approveBtn" onclick="approveAccreditation('Unilab')">
+                <i class="fas fa-check"></i> Approve
+              </button>
+            </div>
+          </div>
+
+          <div class="accreditationCard">
+            <div class="accreditationHeader">
+              <h4>Petron Corporation</h4>
+              <span class="badge badgePending">Pending</span>
+            </div>
+            <div class="accreditationBody">
+              <p><strong>Industry:</strong> Energy & Fuel</p>
+              <p><strong>Submission Date:</strong> Jan 10, 2024</p>
+              <p><strong>Contact:</strong> business@petron.com.ph</p>
+            </div>
+            <div class="documentList">
+              <p><strong>Required Documents:</strong></p>
+              <ul>
+                <li><i class="fas fa-file-pdf"></i> Business Registration Certificate</li>
+                <li><i class="fas fa-file-pdf"></i> BIR Tax Clearance</li>
+                <li><i class="fas fa-file-pdf"></i> Financial Statements (2023)</li>
+                <li><i class="fas fa-file-pdf"></i> Safety Compliance Report</li>
+              </ul>
+            </div>
+            <div class="formActions">
+              <button class="rejectBtn" onclick="rejectAccreditation('Petron')">
+                <i class="fas fa-times"></i> Reject
+              </button>
+              <button class="approveBtn" onclick="approveAccreditation('Petron')">
+                <i class="fas fa-check"></i> Approve
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- APPROVED ACCREDITATIONS -->
+    <div id="approved" class="tabContent">
+      <div class="card">
+        <div class="cardHeader">
+          <h3><i class="fas fa-check-circle"></i> Approved Vendors</h3>
+        </div>
+
+        <div class="tableContainer">
+          <table class="dataTable">
+            <thead>
+              <tr>
+                <th>Vendor Name</th>
+                <th>Industry</th>
+                <th>Approval Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Samsung Philippines</strong></td>
+                <td>Electronics</td>
+                <td>Jan 05, 2024</td>
+                <td><span class="badge badgeSuccess">Active</span></td>
+                <td><button class="actionSmall">View</button></td>
+              </tr>
+              <tr>
+                <td><strong>Apple Inc. Asia</strong></td>
+                <td>Technology</td>
+                <td>Dec 28, 2023</td>
+                <td><span class="badge badgeSuccess">Active</span></td>
+                <td><button class="actionSmall">View</button></td>
+              </tr>
+              <tr>
+                <td><strong>Microsoft Windows PH</strong></td>
+                <td>Software</td>
+                <td>Dec 15, 2023</td>
+                <td><span class="badge badgeSuccess">Active</span></td>
+                <td><button class="actionSmall">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- REJECTED ACCREDITATIONS -->
+    <div id="rejected" class="tabContent">
+      <div class="card">
+        <div class="cardHeader">
+          <h3><i class="fas fa-times-circle"></i> Rejected Applications</h3>
+        </div>
+
+        <div class="tableContainer">
+          <table class="dataTable">
+            <thead>
+              <tr>
+                <th>Vendor Name</th>
+                <th>Industry</th>
+                <th>Rejection Date</th>
+                <th>Reason</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Local Supplier Inc</strong></td>
+                <td>General Supplies</td>
+                <td>Jan 08, 2024</td>
+                <td>Incomplete documents</td>
+                <td><button class="actionSmall">Resubmit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+<script>
+  function switchTab(tabName) {
+    // Hide all tabs
+    document.querySelectorAll('.tabContent').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    
+    // Remove active class from all buttons
+    document.querySelectorAll('.tabBtn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    
+    // Show selected tab
+    document.getElementById(tabName).classList.add('active');
+    
+    // Add active class to clicked button
+    event.target.closest('.tabBtn').classList.add('active');
+  }
+
+  function approveAccreditation(vendorName) {
+    showToast(`✅ ${vendorName} accreditation approved`, "success");
+  }
+
+  function rejectAccreditation(vendorName) {
+    showToast(`❌ ${vendorName} accreditation rejected`, "error");
+  }
+</script>
+
+</body>
+</html>

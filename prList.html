@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase Requisitions - CSF Procurement</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header class="topNav">
+  <div class="navLeft">
+    <div class="brand">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCQcpUVcMkiatBspqCS-q1a-143Pvte2_qaw&s" alt="CSF Logo" class="brandLogo">
+      <span>CSF Procurement</span>
+    </div>
+  </div>
+  <div class="navRight">
+    <button class="profileBtn" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sideNav">
+    <nav class="navMenu">
+      <div class="navSection">
+        <h4 class="navLabel">MAIN</h4>
+        <a href="dashboard.html" class="navItem">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <div class="navSection">
+        <h4 class="navLabel">PROCUREMENT</h4>
+        <a href="prCreate.html" class="navItem">
+          <i class="fas fa-file-circle-plus"></i>
+          <span>Create PR</span>
+        </a>
+        <a href="#" class="navItem active">
+          <i class="fas fa-list"></i>
+          <span>Purchase Requisitions</span>
+        </a>
+        <a href="sourcing.html" class="navItem">
+          <i class="fas fa-bullhorn"></i>
+          <span>Sourcing Events</span>
+        </a>
+        <a href="rfqList.html" class="navItem">
+          <i class="fas fa-envelope"></i>
+          <span>RFQ Management</span>
+        </a>
+        <a href="bidOpen.html" class="navItem">
+          <i class="fas fa-gavel"></i>
+          <span>Bid Opening</span>
+        </a>
+      </div>
+
+      <div class="navSection">
+        <h4 class="navLabel">MANAGE</h4>
+        <a href="vendorProfile.html" class="navItem">
+          <i class="fas fa-handshake"></i>
+          <span>Vendors</span>
+        </a>
+        <a href="accreditation.html" class="navItem">
+          <i class="fas fa-certificate"></i>
+          <span>Accreditation</span>
+        </a>
+        <a href="audit.html" class="navItem">
+          <i class="fas fa-history"></i>
+          <span>Audit Log</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="pageHeader">
+      <div class="headerContent">
+        <h1>Purchase Requisitions</h1>
+        <p class="headerSubtext">View and manage all your purchase requisitions (PRS)</p>
+      </div>
+      <div class="headerActions">
+        <button class="actionBtn primary" onclick="window.location.href='prCreate.html'">
+          <i class="fas fa-plus"></i> New Requisition
+        </button>
+      </div>
+    </div>
+
+    <!-- STATISTICS GRID -->
+    <div class="statGrid">
+      <div class="statCard">
+        <div class="statIcon pending">
+          <i class="fas fa-hourglass-half"></i>
+        </div>
+        <div class="statContent">
+          <h3>Pending</h3>
+          <div class="statValue">8</div>
+          <p class="statChange">
+            <i class="fas fa-arrow-up"></i> Awaiting approval
+          </p>
+        </div>
+      </div>
+
+      <div class="statCard">
+        <div class="statIcon approval">
+          <i class="fas fa-check-double"></i>
+        </div>
+        <div class="statContent">
+          <h3>Approved</h3>
+          <div class="statValue">24</div>
+          <p class="statChange">
+            <i class="fas fa-check"></i> This quarter
+          </p>
+        </div>
+      </div>
+
+      <div class="statCard">
+        <div class="statIcon sourcing">
+          <i class="fas fa-ban"></i>
+        </div>
+        <div class="statContent">
+          <h3>Rejected</h3>
+          <div class="statValue">3</div>
+          <p class="statChange">
+            <i class="fas fa-arrow-down"></i> Last month
+          </p>
+        </div>
+      </div>
+
+      <div class="statCard">
+        <div class="statIcon vendor">
+          <i class="fas fa-dollar-sign"></i>
+        </div>
+        <div class="statContent">
+          <h3>Total Budget</h3>
+          <div class="statValue">₱856K</div>
+          <p class="statChange">
+            <i class="fas fa-percentage"></i> Year to date
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cardHeader">
+        <h3><i class="fas fa-list"></i> All Purchase Requisitions</h3>
+      </div>
+
+      <div class="tableContainer">
+        <table class="dataTable">
+          <thead>
+            <tr>
+              <th>PRS Number</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Submitted By</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>PM-PRS-26-001-001</strong></td>
+              <td>Office Supplies</td>
+              <td>Php. 2,500</td>
+              <td><span class="badge badgePending">Pending</span></td>
+              <td>Lanbert Francisco</td>
+              <td>Jan 16, 2024</td>
+              <td><button class="actionSmall">View</button></td>
+            </tr>
+            <tr>
+              <td><strong>PM-PRS-26-001-002</strong></td>
+              <td>IT Equipment</td>
+              <td>Php. 15,000</td>
+              <td><span class="badge badgeWarning">Under Review</span></td>
+              <td>Lanbert Francisco</td>
+              <td>Jan 15, 2024</td>
+              <td><button class="actionSmall">View</button></td>
+            </tr>
+            <tr>
+              <td><strong>WH-PRS-26-001-001</strong></td>
+              <td>Raw Materials</td>
+              <td>Php. 5,800</td>
+              <td><span class="badge badgeSuccess">Approved</span></td>
+              <td>Lanbert Francisco</td>
+              <td>Jan 14, 2024</td>
+              <td><button class="actionSmall">View</button></td>
+            </tr>
+            <tr>
+              <td><strong>PM-PRS-26-001-003</strong></td>
+              <td>Plant Equipment</td>
+              <td>Php. 8,200</td>
+              <td><span class="badge badgeSuccess">Approved</span></td>
+              <td>Lanbert Francisco</td>
+              <td>Jan 13, 2024</td>
+              <td><button class="actionSmall">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

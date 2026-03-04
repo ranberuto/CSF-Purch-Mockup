@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSF Procurement | Login</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="loginPage">
+
+  <div class="loginContainer">
+    <!-- Left Section with Branding -->
+    <div class="loginBrand">
+      <div class="brandContent">
+        <div class="brandIcon">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCQcpUVcMkiatBspqCS-q1a-143Pvte2_qaw&s" alt="CSF Logo">
+        </div>
+        <h1>CSF Procurement</h1>
+        <p class="brandSubtitle">CSF Procurement Management System</p>
+        <p class="brandDescription">Crystal Steel Fabricators Phils., Inc. - Caloocan</p>
+        
+        <div class="featureList">
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Efficient PRSA Management</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Real-time PRS Tracking</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Supplier Accreditation</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Audit Compliance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Section with Login Form -->
+    <div class="loginFormSection">
+      <div class="loginCard">
+        <div class="loginHeader">
+          <h2>Welcome Back</h2>
+          <p>Sign in to your account</p>
+        </div>
+
+        <form class="loginForm" onsubmit="handleLogin(event)">
+          <div class="formGroup">
+            <label for="username">
+              <i class="fas fa-user"></i>
+              Username
+            </label>
+            <input 
+              type="text" 
+              id="username"
+              placeholder="Enter your username"
+              required
+            >
+            <div class="inputFocus"></div>
+          </div>
+
+          <div class="formGroup">
+            <label for="password">
+              <i class="fas fa-lock"></i>
+              Password
+            </label>
+            <input 
+              type="password" 
+              id="password"
+              placeholder="Enter your password"
+              required
+            >
+            <div class="inputFocus"></div>
+          </div>
+
+          <div class="formGroup">
+            <label for="role">
+              <i class="fas fa-user-shield"></i>
+              Role
+            </label>
+          <select id="role" required>
+            <option value="">-- Select Your Role --</option>
+            <option value="buyer">Procurement Associate</option>
+            <option value="requester">Requester</option>
+            <option value="vendor">Vendor / Supplier</option>
+            <option value="approver">Approver (OOH / VPO)</option>
+          </select>
+            <div class="inputFocus"></div>
+          </div>
+
+          <div class="formOptions">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span>Remember Me</span>
+            </label>
+            <a href="#" class="forgotLink">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="loginBtn">
+            <span>Sign In</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <div class="divider">
+          <span>OR</span>
+        </div>
+
+        <div class="socialLogin">
+          <button class="socialBtn microsoft" title="Sign in with Microsoft">
+            <i class="fab fa-microsoft"></i>
+          </button>
+          <button class="socialBtn google" title="Sign in with Google">
+            <i class="fab fa-google"></i>
+          </button>
+        </div>
+
+        <div class="loginFooter">
+          <p>Don't have an account? <a href="#" class="signupLink">Request Access</a></p>
+          <p class="supportText">
+            <i class="fas fa-headset"></i>
+            Need help? <a href="#">Contact Support</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      const role = document.getElementById('role').value;
+      if (role) {
+        localStorage.setItem('role', role);
+        document.body.classList.add('fadeOut');
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 400);
+      }
+    }
+  </script>
+
+</body>
+</html>
